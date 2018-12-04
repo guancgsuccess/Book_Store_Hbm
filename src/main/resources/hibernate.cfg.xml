@@ -1,0 +1,83 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!-- Hibernate主配置文件(可反复使用) -->
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置数据库基本连接信息 -->
+		<property name="connection.driver_class">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<property name="connection.url">
+			jdbc:oracle:thin:@localhost:1521:XE
+		</property>
+		<property name="connection.username">tom</property>
+		<property name="connection.password">mot</property>
+
+		<!-- 配置c3p0连接池 -->
+		<!-- 1.声明使用c3p0连接池(高版本Hibernate中该配置可以省略) -->
+		<property name="connection.provider_class">
+			org.hibernate.c3p0.internal.C3P0ConnectionProvider
+		</property>
+
+		<!-- 设置c3p0连接池属性 -->
+		<!-- 最大容量 -->
+		<property name="c3p0.max_size">20</property>
+		<!-- 最小容量 -->
+		<property name="c3p0.min_size">5</property>
+		<!-- 最大语句对象数量 -->
+		<property name="c3p0.max_statements">50</property>
+		<!-- 超时时间 -->
+		<property name="c3p0.timeout">5000</property>
+		<!-- 检测超时时间间隔 -->
+		<property name="c3p0.idle_test_period">2000</property>
+		<!-- 容量扩容增量 -->
+		<property name="c3p0.acquire_increment">5</property>
+
+		<!-- 开启二级缓存 -->
+		<property name="cache.use_second_level_cache">true</property>
+
+		<!-- 指定二级缓存供应商 -->
+		<property name="cache.region.factory_class">
+			org.hibernate.cache.ehcache.EhCacheRegionFactory
+		</property>
+
+		<!-- 开启查询缓存 -->
+		<property name="cache.use_query_cache">true</property>
+
+		<!-- 配置方言 -->
+		<property name="dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+
+		<!-- 使用新的ID生成器(新项目中推荐使用,不保证对老的数据库兼容) -->
+		<property name="id.new_generator_mappings">true</property>
+
+		<!-- 是否自动执行DDL语句 update 表示实体对应的表格不存在,则创建表格,否则进行更新 create 表示在创建会话工厂的时候,对表以及数据全部进行初始化, 
+			如果src目录下存在名为import.sql的脚本文件,则会运行该脚本文件 create-drop 和create的区别在于当会话工厂关闭时,会删除配置创建的所有表格 -->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- 搭配create使用,执行指定的脚本文件 -->
+		<!-- <property name="hbm2ddl.import_files">sql脚本</property> -->
+
+		<!-- 是否显示SQL语句 -->
+		<property name="show_sql">true</property>
+
+		<!-- 是否格式化SQL语句 -->
+		<property name="format_sql">true</property>
+
+		<!-- 设置批处理执行语句的数量 -->
+		<property name="jdbc.batch_size">100</property>
+
+		<!-- 注册ORM关系 -->
+		<mapping class="com.tz.online.entity.Book" />
+		<mapping class="com.tz.online.entity.Image" />
+		<mapping class="com.tz.online.entity.User" />
+		<mapping class="com.tz.online.entity.Address" />
+		<mapping class="com.tz.online.entity.Order" />
+		<mapping class="com.tz.online.entity.OrderItem" />
+
+
+	</session-factory>
+</hibernate-configuration>

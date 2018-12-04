@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="2252" started-at="2017-07-02T14:49:33Z" finished-at="2017-07-02T14:49:35Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="2252" started-at="2017-07-02T14:49:33Z" finished-at="2017-07-02T14:49:35Z">
+      <class name="com.tz.online.order.dao.TestOrderDaoImpl">
+        <test-method status="PASS" signature="testRowCount()[pri:0, instance:com.tz.online.order.dao.TestOrderDaoImpl@2b98378d]" name="testRowCount" duration-ms="2230" started-at="2017-07-02T22:49:33Z" finished-at="2017-07-02T22:49:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRowCount -->
+      </class> <!-- com.tz.online.order.dao.TestOrderDaoImpl -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

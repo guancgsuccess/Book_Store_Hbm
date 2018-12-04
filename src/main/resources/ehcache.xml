@@ -1,0 +1,37 @@
+<ehcache>
+
+    <!--  e h c ache文件存放的路径,默认为系统临时文件夹 -->
+    <!-- <diskStore path="java.io.tmpdir"/> -->
+    
+    <diskStore path="E:\\ehcache"/>
+
+
+    <!--默认配置
+
+        maxInMemory 	  - 二级缓存中最多存放多少个对象
+        eternal           - 设置二级缓存中对象是否是永久的,如果是,则下面的超时配置将被忽略
+        timeToIdleSeconds - 空闲时间间隔,当前时间-最后一次访问的时间,如果超过设置时间,则
+        					二级缓存中的该对象被移除(受到eternal设置的影响)
+        timeToLiveSeconds - 对象存活时间,当前时间-创建时间,如果超过设置时间,则
+        					二级缓存中的该对象被移除(受到eternal设置的影响)
+        overflowToDisk    - 设置是否允许将查询超过内存部分写入到目标文件中,目标文件路径为diskStore
+        					设置的路径,如果使用defalut默认配置,目标文件名称为ehcache.data,如果使用
+        					自定义配置,则目标文件名称为自定义配置的name属性值.data
+    -->
+    <defaultCache
+        maxElementsInMemory="1000"
+        eternal="true"
+        timeToIdleSeconds="0"
+        timeToLiveSeconds="0"
+        overflowToDisk="false"
+    />
+   
+   <!-- 二级缓存自定义配置 -->
+   <cache name="mycache"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+   />
+</ehcache>

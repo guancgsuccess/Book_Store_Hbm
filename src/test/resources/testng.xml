@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="product-gateway" parallel="false" thread-count="2">
+    <test verbose="2" preserve-order="true" name="Spu">  
+        <classes>
+        	<!-- class标签控制的是单元测试类的执行顺序 -->
+             <class name="com.tz.online.book.dao.TestBookDaoImpl"></class>
+             <class name="com.tz.online.book.service.TestBookServiceImpl"></class>
+             <class name="com.tz.online.order.dao.TestOrderDaoImpl"></class>
+             <class name="com.tz.online.order.service.TestOrderServiceImpl"></class>
+             <class name="com.tz.online.user.dao.TestUserDaoImpl"></class>
+             <class name="com.tz.online.user.service.TestUserServiceImpl"></class>
+
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
